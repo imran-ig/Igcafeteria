@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, LogInActivity!</string>
     <string name="app_name">Igcafeteria</string>
+    <string name="login">Login</string>
+    <string name="email">ex:imran.ali@intelligrape.com</string>
+    <string name="password">password</string>
 </resources>
