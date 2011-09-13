@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+   <Spinner android:id="@+id/spinnerItem" 
+   android:layout_width="fill_parent" 
+   android:layout_height="wrap_content" 
+   ></Spinner>
+   <Spinner android:id="@+id/spinnerQuantity"
+   android:layout_width="fill_parent" 
+   android:layout_height="wrap_content" 
+   android:soundEffectsEnabled="true">
+   </Spinner>
+   <Button  android:id="@+id/buttonBuy" 
+   android:text="Buy" 
+    android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"></Button>
+  
+    
+</LinearLayout>
