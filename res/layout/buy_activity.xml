@@ -7,17 +7,44 @@
    <Spinner android:id="@+id/spinnerItem" 
    android:layout_width="fill_parent" 
    android:layout_height="wrap_content" 
-   ></Spinner>
+   android:layout_margin="10dip"
+   />
+   
+   <RelativeLayout
+   android:id="@+id/otherField"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:layout_margin="10dip"
+   android:visibility="gone" >
+   <EditText 
+   android:id="@+id/otherQuantity"
+   android:layout_width="100dip"
+   android:layout_height="wrap_content"
+   android:hint="Quant."
+   android:inputType="number"
+   android:layout_alignParentRight="true"
+   android:layout_marginLeft="10dip"
+   />
+   <EditText 
+   android:id="@+id/otherItem"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:hint="Item Name"
+   android:inputType="text"
+   android:layout_toLeftOf="@id/otherQuantity"
+   />
+   </RelativeLayout>
    <Spinner android:id="@+id/spinnerQuantity"
    android:layout_width="fill_parent" 
    android:layout_height="wrap_content" 
-   android:soundEffectsEnabled="true">
-   </Spinner>
+   android:soundEffectsEnabled="true"
+    android:layout_margin="10dip"/>
    <Button  android:id="@+id/buttonBuy" 
-   android:text="Buy" 
-    android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_gravity="center"></Button>
+   	android:text="Buy" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="10dip"/>
   
     
 </LinearLayout>

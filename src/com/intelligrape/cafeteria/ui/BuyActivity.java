@@ -6,27 +6,61 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 public class BuyActivity extends Activity{
-	int []quantityArray;
 	Spinner spinnerItem, spinnerQuantity;
-	String [] test={"test1","test2","test3"};
+	String [] item={"Select Item","Chips","Samosa","Pea Nut","other"};
+	String [] quantity={"Select quantity","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+	RelativeLayout otherField;
+	EditText etOtherItem,etOtherQuantity;
+	int itemSelectedPostion,quantitySelectedPositin;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		quantityArray=getResources().getIntArray(R.array.quantity_array);
+		setContentView(R.layout.buy_activity);
+		spinnerItem=(Spinner)findViewById(R.id.spinnerItem);
 		spinnerQuantity=(Spinner)findViewById(R.id.spinnerQuantity);
-	 ArrayAdapter<String> adapterQuantity=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,test);
+		otherField=(RelativeLayout)findViewById(R.id.otherField);
+		etOtherItem=(EditText)findViewById(R.id.otherItem);
+		etOtherQuantity=(EditText)findViewById(R.id.otherQuantity);
+
+		 ArrayAdapter<String> adapterItem=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,item);
+		 adapterItem.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+		 spinnerItem.setAdapter(adapterItem);
+		 spinnerItem.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+				@Override
+				public void onItemSelected(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
+					itemSelectedPostion=arg0.getSelectedItemPosition();
+					//Toast.makeText(BuyActivity.this, "you have selected item::"+item[itemSelectedPostion], Toast.LENGTH_LONG).show();
+					ItemSelected();
+					
+					
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			
+
+	 ArrayAdapter<String> adapterQuantity=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,quantity);
+	 adapterQuantity.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 		spinnerQuantity.setAdapter(adapterQuantity);
 		spinnerQuantity.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				int position=arg0.getSelectedItemPosition();
-				Toast.makeText(BuyActivity.this, "you have selected item::"+test[position], Toast.LENGTH_LONG).show();
+				quantitySelectedPositin=arg0.getSelectedItemPosition();
+				Toast.makeText(BuyActivity.this, "you have selected item::"+quantity[quantitySelectedPositin], Toast.LENGTH_LONG).show();
 				
 			}
 
@@ -36,6 +70,15 @@ public class BuyActivity extends Activity{
 				
 			}
 		});
+		
+	}
+	
+	void ItemSelected(){
+		if(itemSelectedPostion==item.length-1){
+			otherField.setVisibility(RelativeLayout.VISIBLE);
+		}else{
+			otherField.setVisibility(RelativeLayout.GONE);
+		}
 		
 	}
 
